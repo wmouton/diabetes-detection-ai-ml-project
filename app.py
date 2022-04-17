@@ -2,7 +2,7 @@
 
 # Library Imports
 import pandas as pd
-from sklearn.metrics import accuracy_score
+import sklearn
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from PIL import Image
@@ -64,13 +64,15 @@ def get_user_input():
 
 
 # Store User Input In Variable
-# user_input = get_user_input()
-get_user_input()
+user_input = get_user_input()
+# get_user_input()
 
 
 # Set Subheader And Display User Input
-# st.subheader('User Input:')
-#st.write(user_input)
+st.subheader('User Input: Unavailable')
+st.subheader('USER INPUT RESULTS WILL BE AVAILABLE SOON')
+
+st.write(user_input)
 
 # Create And Train Model
 RandomForestClassifier = RandomForestClassifier()
@@ -78,7 +80,7 @@ RandomForestClassifier.fit(X_train, Y_train)
 
 # Show Model Metrics
 st.subheader('Model Test Accuracy Score:')
-st.write(str(accuracy_score(Y_test, RandomForestClassifier.predict(X_test)) * 100) + '%')
+st.write(str(sklearn.metrics.accuracy_score(Y_test, RandomForestClassifier.predict(X_test)) * 100) + '%')
 
 # Store Models Predictions In Variable
 # prediction = RandomForestClassifier.predict([[user_input]])
