@@ -11,13 +11,13 @@ from PIL import Image
 
 # Title And Subtitle
 st.write("""
-# AI & ML Diabetes Detection Web Application
-Detect If Someone Has Diabetes Using This Web Appliaction.
+# AI & ML Diabetes Detection
+Detect If Someone Has Diabetes Using This Artificial Intelligence Web Appliaction.
 """)
 
 # Image To Display
 image = Image.open('./img/image.jpg')
-st.image(image, caption='ARTIFICIAL INTELLIGENCE & MACHINE LEARNING', use_column_width=True)
+st.image(image, caption='ARTIFICIAL INTELLIGENCE & MACHINE LEARNING DIABETES DETECTION', use_column_width=True)
 
 # Load Data
 df = pd.read_csv('./data/diabetes.csv')
@@ -29,3 +29,7 @@ st.dataframe(df)
 st.write(df.describe())
 # Data Chart
 chart = st.bar_chart(df)
+
+# Split Data - Independent 'X' and Dependent 'Y' Variables
+X = df.iloc[:, 0:8].values
+Y = df.iloc[:, -1].values
