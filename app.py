@@ -1,13 +1,12 @@
 # This AI & ML project is a diabetes detection program that can detect if someone has diabetes
 
 # Library Imports
-import streamlit as st
 import pandas as pd
-
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from PIL import Image
+import streamlit as st
 
 # Title And Subtitle
 st.write("""
