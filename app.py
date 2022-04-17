@@ -36,3 +36,15 @@ Y = df.iloc[:, -1].values
 
 # Split data - 75% Training And 25% Testing
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25, random_state=0)
+# Get Feature Input From User
+
+
+def get_user_input():
+    pregnancies = st.sidebar.slider('pregnancies', 0, 17, 3)
+    glucose = st.sidebar.slider('glucose', 0, 199, 117)
+    blood_pressure = st.sidebar.slider('blood_pressure', 0, 122, 72)
+    skin_thickness = st.sidebar.slider('skin_thickness', 0, 99, 23)
+    insulin = st.sidebar.slider('insulin', 0.0, 846.0, 30.0)
+    bmi = st.sidebar.slider('BMI', 0.0, 67.1, 32.0)
+    diabetes_pedigree_function = st.sidebar.slider('DPF', 0.078, 2.42, 0.3725)\
+    age = st.sidebar.slider('AGE', 21, 81, 29)
