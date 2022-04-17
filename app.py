@@ -18,3 +18,6 @@ Detect If Someone Has Diabetes Using This Web Appliaction.
 # Image To Display
 image = Image.open('./img/image.jpg')
 st.image(image, caption='ARTIFICIAL INTELLIGENCE & MACHINE LEARNING', use_column_width=True)
+
+# Load Data
+df = pd.read_csv('./data/diabetes.csv')
