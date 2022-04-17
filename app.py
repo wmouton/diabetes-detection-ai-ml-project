@@ -33,3 +33,6 @@ chart = st.bar_chart(df)
 # Split Data - Independent 'X' and Dependent 'Y' Variables
 X = df.iloc[:, 0:8].values
 Y = df.iloc[:, -1].values
+
+# Split data - 75% Training And 25% Testing
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25, random_state=0)
