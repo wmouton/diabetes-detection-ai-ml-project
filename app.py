@@ -2,7 +2,7 @@
 
 # Library Imports
 import pandas as pd
-from sklearn import accuracy_score
+from sklearn import metrics
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from PIL import Image
@@ -80,7 +80,7 @@ RandomForestClassifier.fit(X_train, Y_train)
 
 # Show Model Metrics
 st.subheader('Model Test Accuracy Score:')
-st.write(str(accuracy_score(Y_test, RandomForestClassifier.predict(X_test)) * 100) + '%')
+st.write(str(metrics.accuracy_score(Y_test, RandomForestClassifier.predict(X_test)) * 100) + '%')
 
 # Store Models Predictions In Variable
 # prediction = RandomForestClassifier.predict([[user_input]])
