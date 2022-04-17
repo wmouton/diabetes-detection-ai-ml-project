@@ -12,7 +12,7 @@ from PIL import Image
 # Title And Subtitle
 st.write("""
 # AI & ML Diabetes Detection
-Detect If Someone Has Diabetes Using This Artificial Intelligence Web Appliaction.
+Detect If Someone Has Diabetes Using This Artificial Intelligence Web Application. - by WMouton
 """)
 
 # Image To Display
@@ -36,37 +36,55 @@ Y = df.iloc[:, -1].values
 
 # Split data - 75% Training And 25% Testing
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25, random_state=0)
+
+
 # Get Feature Input From User
-
-
 def get_user_input():
-    pregnancies = st.sidebar.slider('pregnancies', 0, 17, 3)
-    glucose = st.sidebar.slider('glucose', 0, 199, 117)
-    blood_pressure = st.sidebar.slider('blood_pressure', 0, 122, 72)
-    skin_thickness = st.sidebar.slider('skin_thickness', 0, 99, 23)
-    insulin = st.sidebar.slider('insulin', 0.0, 846.0, 30.0)
+    pregnancies = st.sidebar.slider('Pregnancies', 0, 17, 3)
+    glucose = st.sidebar.slider('Glucose', 0, 199, 117)
+    blood_pressure = st.sidebar.slider('Blood Pressure', 0, 122, 72)
+    skin_thickness = st.sidebar.slider('Skin Thickness', 0, 99, 23)
+    insulin = st.sidebar.slider('Insulin', 0.0, 846.0, 30.0)
     bmi = st.sidebar.slider('BMI', 0.0, 67.1, 32.0)
-    diabetes_pedigree_function = st.sidebar.slider('DPF', 0.078, 2.42, 0.3725)\
+    diabetes_pedigree_function = st.sidebar.slider('DPF', 0.078, 2.42, 0.3725)
     age = st.sidebar.slider('age', 21, 81, 29)
-
 
     # Store Dictionary Into Variable
     user_data = {'pregnancies': pregnancies,
-             'glucose': glucose,
-             'blood_pressure': blood_pressure,
-             'skin_thickness': skin_thickness,
-             'insulin': insulin,
-             'BMI': bmi,
-             'DPF': diabetes_pedigree_function,
-             'age': age
-             }
+                 'glucose': glucose,
+                 'blood_pressure': blood_pressure,
+                 'skin_thickness': skin_thickness,
+                 'insulin': insulin,
+                 'BMI': bmi,
+                 'DPF': diabetes_pedigree_function,
+                 'age': age
+                 }
 
     # Transform Data Into Data Frame
     features = pd.DataFrame(user_data, index=[0])
 
+
 # Store User Input In Variable
-user_input = get_user_input()
+# user_input = get_user_input()
+get_user_input()
+
 
 # Set Subheader And Display User Input
-st.subheader('User Input:')
-st.write(user_input)
+# st.subheader('User Input:')
+#st.write(user_input)
+
+# Create And Train Model
+RandomForestClassifier = RandomForestClassifier()
+RandomForestClassifier.fit(X_train, Y_train)
+
+# Show Model Metrics
+st.subheader('Model Test Accuracy Score:')
+st.write(str(accuracy_score(Y_test, RandomForestClassifier.predict(X_test)) * 100) + '%')
+
+# Store Models Predictions In Variable
+# prediction = RandomForestClassifier.predict([[user_input]])
+prediction = RandomForestClassifier.predict(X)
+
+# Set Subheader - Display Classification
+st.subheader('Classification: ')
+st.write(prediction)
