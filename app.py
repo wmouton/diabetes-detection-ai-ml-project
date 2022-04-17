@@ -47,4 +47,26 @@ def get_user_input():
     insulin = st.sidebar.slider('insulin', 0.0, 846.0, 30.0)
     bmi = st.sidebar.slider('BMI', 0.0, 67.1, 32.0)
     diabetes_pedigree_function = st.sidebar.slider('DPF', 0.078, 2.42, 0.3725)\
-    age = st.sidebar.slider('AGE', 21, 81, 29)
+    age = st.sidebar.slider('age', 21, 81, 29)
+
+
+    # Store Dictionary Into Variable
+    user_data = {'pregnancies': pregnancies,
+             'glucose': glucose,
+             'blood_pressure': blood_pressure,
+             'skin_thickness': skin_thickness,
+             'insulin': insulin,
+             'BMI': bmi,
+             'DPF': diabetes_pedigree_function,
+             'age': age
+             }
+
+    # Transform Data Into Data Frame
+    features = pd.DataFrame(user_data, index=[0])
+
+# Store User Input In Variable
+user_input = get_user_input()
+
+# Set Subheader And Display User Input
+st.subheader('User Input:')
+st.write(user_input)
