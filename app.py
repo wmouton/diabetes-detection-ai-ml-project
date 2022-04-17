@@ -21,3 +21,11 @@ st.image(image, caption='ARTIFICIAL INTELLIGENCE & MACHINE LEARNING', use_column
 
 # Load Data
 df = pd.read_csv('./data/diabetes.csv')
+# Subheader
+st.subheader('Data Information:')
+# Data Table
+st.dataframe(df)
+# Data Statistics
+st.write(df.describe())
+# Data Chart
+chart = st.bar_chart(df)
