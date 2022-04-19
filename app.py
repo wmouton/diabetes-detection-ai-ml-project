@@ -67,17 +67,6 @@ def get_user_input():
 
 # Store User Input In Variable
 user_input = get_user_input()
-# get_user_input()
-# user_data = {}
-#     for feature in df.columns[:-1]:
-#         slider_max = (df[feature].max()*2)
-#         if 'int' in str(type(df[feature][0])):
-#             data = st.sidebar.slider(str(feature), 0, slider_max, 0)
-#         else:
-#             data = st.sidebar.slider(str(feature), 0.0, slider_max, 0.0)
-#         user_data[feature] = data
-#     features = pd.DataFrame(user_data, index=[0])
-#     return features
 
 
 # Set Subheader And Display User Input
@@ -96,12 +85,12 @@ st.write(str(accuracy_score(Y_test, RandomForestClassifier.predict(X_test)) * 10
 
 # Store Models Predictions In Variable
 prediction = RandomForestClassifier.predict(user_input)
-# prediction = RandomForestClassifier.predict(X)
 
 # Set Subheader - Display Classification
 st.subheader('Classification: ')
 st.write('##### 0 = no diabetes')
 st.write('##### 1 = diabetes')
+st.write('###### YOU CAN SEE YOUR RESULTS IN THE BOX BELOW')
 st.write(prediction)
 
 st.write('###### This Artificial Intelligence Web Application was created by WMouton.')
