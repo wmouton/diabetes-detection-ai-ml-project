@@ -10,7 +10,8 @@ import streamlit as st
 
 # Title And Subtitle
 st.write("""
-# AI & ML Diabetes Detection
+# DIABETES DETECTION
+### Artificial Intelligence & Machine Learning
 Detect If Someone Has Diabetes Using This Artificial Intelligence Web Application. - by WMouton
 """)
 
