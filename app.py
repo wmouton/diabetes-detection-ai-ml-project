@@ -2,7 +2,7 @@
 
 # Library Imports
 import pandas as pd
-from sklearn import metrics
+from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from PIL import Image
@@ -12,7 +12,7 @@ import streamlit as st
 st.write("""
 # DIABETES DETECTION
 ### Artificial Intelligence & Machine Learning
-Detect If Someone Has Diabetes Using This Artificial Intelligence Web Application. - by WMouton
+Detect If Someone Has Diabetes Using This Artificial Intelligence Web Application.\n- by WMouton
 """)
 
 # Image To Display
@@ -92,7 +92,7 @@ RandomForestClassifier.fit(X_train, Y_train)
 
 # Show Model Metrics
 st.subheader('Model Test Accuracy Score:')
-st.write(str(metrics.accuracy_score(Y_test, RandomForestClassifier.predict(X_test)) * 100) + '%')
+st.write(str(accuracy_score(Y_test, RandomForestClassifier.predict(X_test)) * 100) + '%')
 
 # Store Models Predictions In Variable
 prediction = RandomForestClassifier.predict(user_input)
@@ -103,3 +103,5 @@ st.subheader('Classification: ')
 st.write('##### 0 = no diabetes')
 st.write('##### 1 = diabetes')
 st.write(prediction)
+
+st.write('###### This Artificial Intelligence Web Application was created by WMouton.')
