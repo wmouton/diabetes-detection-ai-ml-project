@@ -84,9 +84,11 @@ st.subheader('Model Test Accuracy Score:')
 st.write(str(metrics.accuracy_score(Y_test, RandomForestClassifier.predict(X_test)) * 100) + '%')
 
 # Store Models Predictions In Variable
-# prediction = RandomForestClassifier.predict([[user_input]])
-prediction = RandomForestClassifier.predict(X)
+prediction = RandomForestClassifier.predict([[user_input]])
+# prediction = RandomForestClassifier.predict(X)
 
 # Set Subheader - Display Classification
 st.subheader('Classification: ')
+st.write('##### 0 = no diabetes')
+st.write('##### 1 = diabetes')
 st.write(prediction)
